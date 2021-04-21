@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Favorite Players</h1>
+  <ol>
+  {% for player in players %}
+  <div>
+  <li><a href="{% url 'player_detail' player_id=player.id %}"><h4>{{player.first_name}} {{player.last_name}}</h4></a></li>
+  </div>
+  {% endfor %}
+  </ol>
+  <br>
+  <a href="{% url 'new_player' %}">Enter A New Player</a>
+  <br>
+  <h1>Favorite Teams</h1>
+  <ol>
+  {% for team in teams %}
+  <div>
+  <li><h4>{{team.city}} {{team.nickname}}</h4></li>
+  <a href="{% url 'edit_team' team_id=team.id %}"> Edit Team</a>
+  <br>
+  <br>
+  <form name="delete_team" method="POST" action="{% url 'delete_team' team_id=team.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete Team" />
+  </form>
+  </div>
+  {% endfor %}
+  </ol>
+  <a href="{% url 'new_team' %}">Enter A New Team</a>
+{% endblock %}

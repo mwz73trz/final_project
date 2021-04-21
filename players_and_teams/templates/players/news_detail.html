@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>News For {{ term }}:</h1>
+
+{% for article in articles %}
+<a href = "{{ article.url }}">{{ article.title }}</a>
+<p>{{ article.description }}</p>
+<br>
+{% endfor %}
+{% endblock %}
