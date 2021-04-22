@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, HttpResponse
 import requests
 from .models import Player, Team
 from .forms import PlayerForm, TeamForm
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 def get_player(player_id):
     return Player.objects.get(id=player_id)
@@ -9,10 +12,11 @@ def get_player(player_id):
 def get_team(team_id):
     return Team.objects.get(id=team_id)
 
+@login_required
 def player_list(request):
-    players = Player.objects.all()
-    teams = Team.objects.all()
-    return render(request, 'player_team_list.html', {'players': players, 'teams': teams})
+    players = Player.objects.filter(user=request.user)
+    teams = Team.objects.filter(user=request.user)
+    return render(request, 'players/player_team_list.html', {'players': players, 'teams': teams})
 
 def player_detail(request, player_id):
     player = get_player(player_id)
@@ -37,6 +41,7 @@ def new_player(request):
         form = PlayerForm(request.POST)
         if form.is_valid():
             player = form.save(commit=False)
+            player.user = request.user
             player.save()
             return (player_list(request))
     else:
@@ -49,6 +54,7 @@ def edit_player(request, player_id):
         form = PlayerForm(request.POST, instance=player)
         if form.is_valid():
             player = form.save(commit=False)
+            player.user = request.user
             player.save()
             return player_list(request)
     else:
@@ -66,6 +72,7 @@ def new_team(request):
         form = TeamForm(request.POST)
         if form.is_valid():
             team = form.save(commit=False)
+            team.user = request.user
             team.save()
             return (player_list(request))
     else:
@@ -78,6 +85,7 @@ def edit_team(request, team_id):
         form = TeamForm(request.POST, instance=team)
         if form.is_valid():
             team = form.save(commit=False)
+            team.user = request.user
             team.save()
             return player_list(request)
     else:
@@ -115,6 +123,10 @@ def news_detail(request):
             except Exception as e:
                 print(e)
                 return HttpResponse(f"No results were found for {query}")
+
+
+
+
 
 
 
