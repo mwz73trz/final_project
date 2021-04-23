@@ -1,32 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<p><a  class="logout_player_team_list" href="{% url 'logout' %}">logout</a></p>
+<div class="player_team_list_container">
 <h1>Favorite Players and Teams for User {{user.username}}:</h1>
   <h1>Favorite Players</h1>
-  <ol>
+  <ol class="player_list">
   {% for player in players %}
   <div>
-  <li><a href="{% url 'players_and_teams:player_detail' player_id=player.id %}"><h4>{{player.first_name}} {{player.last_name}}</h4></a></li>
+  <li><a  class="player_detail" href="{% url 'players_and_teams:player_detail' player_id=player.id %}"><h4>{{player.first_name}} {{player.last_name}}</h4></a></li>
   </div>
   {% endfor %}
   </ol>
   <br>
-  <a href="{% url 'players_and_teams:new_player' %}">Enter A New Player</a>
+  <a class="new_player" href="{% url 'players_and_teams:new_player' %}">Enter A New Player</a>
   <br>
   <h1>Favorite Teams</h1>
   <ol>
   {% for team in teams %}
   <div>
   <li><h4>{{team.city}} {{team.nickname}}</h4></li>
-  <a href="{% url 'players_and_teams:edit_team' team_id=team.id %}"> Edit Team</a>
-  <br>
-  <br>
+  <div class="team_container">
+  <a class="edit_team" href="{% url 'players_and_teams:edit_team' team_id=team.id %}"> Edit Team</a>
   <form name="delete_team" method="POST" action="{% url 'players_and_teams:delete_team' team_id=team.id %}">
     {% csrf_token %}
     <input type="submit" value="Delete Team" />
   </form>
+</div>
   </div>
   {% endfor %}
   </ol>
-  <a href="{% url 'players_and_teams:new_team' %}">Enter A New Team</a>
+  <br>
+  <a class="enter_team" href="{% url 'players_and_teams:new_team' %}">Enter A New Team</a>
+</div>
 {% endblock %}

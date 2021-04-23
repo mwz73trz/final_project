@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
   {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <p><a href="{% url 'players_and_teams:player_list' %}">Favorite Players and Teams</a></p>
-    <p><a href="{% url 'logout' %}">logout</a></p>
+  <div class="home_container">
+    <h1 class="home_greeting">Hi {{ user.username }}!</h1>
+    <br>
+    <p><a class="player_list_home" href="{% url 'players_and_teams:player_list' %}">Favorite Players and Teams</a></p>
+    <br>
+    <p><a class="logout_home" href="{% url 'logout' %}">logout</a></p>
+    </div>
   {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">login</a>
+    <div class="home_not_login">
+    <p class="not_login_warn">You are not logged in!</p>
+    <br>
+    <a  class="login_home" href="{% url 'login' %}">Login</a>
+  </div>
   {% endif %}
 {% endblock %}

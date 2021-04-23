@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Major Leageue Baseball App</title>
+  <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
 </head>
 <body>
-  <button onclick="goBack()">Go Back</button>
-
+  <button class="go_back_base" onclick="goBack()">Go Back</button>
+  <br>
+  <a class="return_main_page_base" href="{% url 'players_and_teams:player_list' %}">Return to Main Page</a>
 <script>
 function goBack() {
   window.history.back();
 }
 </script>
+<div class="container">
   {% block content %}
   {% endblock %}
+</div>
 </body>
 </html>

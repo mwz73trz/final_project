@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="player_container">
 <h1>{{player.first_name}} {{player.last_name}}</h1>
 <p>Team: {{ team_full }}</p>
 <p>Postion: {{ position }}</p>
@@ -10,18 +12,21 @@
 <p>Date of Birth: {{ birth_date }}</p>
 <p>Height: {{ height_feet }} feet {{ height_inches }} inches</p>
 <br>
-<a href="{% url 'players_and_teams:edit_player' player_id=player.id %}"> Edit Player</a>
+<a class="edit_player" href="{% url 'players_and_teams:edit_player' player_id=player.id %}"> Edit Player</a>
 <br>
 <br>
 <form name="delete_player" method="POST" action="{% url 'players_and_teams:delete_player' player_id=player.id %}">
     {% csrf_token %}
-    <input type="submit" value="Delete Player" />
+    <input class="delete_player" type="submit" value="Delete Player" />
   </form>
+</div>
 <br>
+<div class="search_news">
 <h1>Search</h1>
 <p>Enter a Subject to Search for Articles</p>
 <form type="get" action="{% url 'players_and_teams:news_detail' %}" accept-charset="utf-8">
     <input type="search" id="q" name="q" placeholder="Search..."/>
     <button type="submit">Submit</button>
 </form>
+</div>
 {% endblock %}

@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>News For {{ term }}:</h1>
+<div class="news_detail_container">
+<h1 class="news_header">News For {{ term }}:</h1>
 
 {% for article in articles %}
-<a href = "{{ article.url }}">{{ article.title }}</a>
-<p>{{ article.description }}</p>
+<div class="news_headlines_title">
+<a class="news_headlines" href = "{{ article.url }}">{{ article.title }}</a></div>
+<p class="article" >{{ article.description }}</p>
 <br>
 {% endfor %}
+</div>
 {% endblock %}

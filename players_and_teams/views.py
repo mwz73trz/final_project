@@ -131,3 +131,4 @@ def news_detail(request):
 
 
 
+

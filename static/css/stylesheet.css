@@ -1,0 +1,162 @@
+/* base */
+.container {
+  background-color: cornsilk;
+  margin: 10 10 10 10;
+  border: 3px solid black;
+}
+
+body {
+  background-color: #333;
+}
+
+.go_back_base {
+  color: black;
+}
+
+.return_main_page_base {
+  color: white;
+}
+
+/* home */
+.home_container {
+  text-align: center;
+  border: 3px solid red;
+}
+.home_greeting {
+  color: red;
+}
+
+.player_list_home {
+  color: black;
+  font-size: xx-large;
+}
+
+.logout_home {
+  color: black;
+}
+
+.login_home {
+  color: black;
+  font-size: large;
+}
+
+/* login */
+.login_container {
+  text-align: center;
+  padding-bottom: 5px;
+  border: 3px solid red;
+}
+
+.home_not_login {
+  text-align: center;
+  padding-bottom: 5px;
+  border: 3px solid red;
+}
+
+.not_login_warn {
+  font-size: xx-large;
+  color: red;
+}
+
+.account_signup_login {
+  color: black;
+}
+/* signup */
+.signup_container {
+  padding-left: 400px;
+  padding-bottom: 5px;
+  border: 3px solid red;
+}
+
+/* player_team_list */
+.player_team_list_container {
+  text-align: center;
+  padding-bottom: 5px;
+  border: 3px solid red;
+}
+.logout_player_team_list {
+  color: black;
+}
+
+ol {
+  display: inline-block;
+  text-align: left;
+  color: black;
+  font-size: large;
+}
+
+.player_detail {
+  color: black;
+}
+
+.new_player {
+  color: black
+}
+
+.edit_team {
+  color: black;
+}
+
+.enter_team {
+  color: black;
+}
+
+.team_container {
+  display: inline;
+}
+
+/* player_detail */
+.player_container {
+  padding-left: 25px;
+  border: 3px solid red;
+}
+
+.edit_player {
+  color: black;
+}
+
+.delete_player {
+  padding-bottom: 5px;
+}
+
+.search_news {
+  text-align: center;
+  padding-bottom: 5px;
+}
+/* player_form */
+.player_form_container {
+  text-align: center;
+  border: 3px solid red;
+  padding-bottom: 5px;
+}
+/* news_detail */
+.news_header {
+  text-align: center;
+}
+
+.news_headlines {
+  font-size: x-large;
+  color: black;
+}
+
+.article {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.news_headlines_title {
+  text-align: center;
+}
+
+.news_detail_container {
+  border: 3px solid red;
+  padding-bottom: 5px;
+}
+/* team_form */
+.team_form_container {
+  text-align: center;
+  border: 3px solid red;
+  padding-bottom: 5px;
+}
+
+

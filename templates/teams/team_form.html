@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<div class="team_form_container">
 <h2>{{ type_of_request }} Team</h2>
 <form method="POST">{% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Save</button>
 </form>
+</div>
 {% endblock %}
