@@ -9,14 +9,13 @@
     <h1 class="home_greeting">Hi {{ user.username }}!</h1>
     <br>
     <p><a class="player_list_home" href="{% url 'players_and_teams:player_list' %}">Favorite Players and Teams</a></p>
-    <br>
-    <p><a class="logout_home" href="{% url 'logout' %}">logout</a></p>
+    <img src="{% static 'media/fisheye_stadium.jpg' %}" alt="Baseball Stadium" width="100%" height="50%">
     </div>
   {% else %}
     <div class="home_not_login">
     <p class="not_login_warn">You are not logged in!</p>
-    <br>
-    <a  class="login_home" href="{% url 'login' %}">Login</a>
+    <img src="{% static 'media/stadium.jpg' %}" alt="Dodger Stadium" width="100%" height="50%">
   </div>
+  
   {% endif %}
 {% endblock %}

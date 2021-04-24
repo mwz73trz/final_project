@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-<p><a  class="logout_player_team_list" href="{% url 'logout' %}">logout</a></p>
 <div class="player_team_list_container">
 <h1>Favorite Players and Teams for User {{user.username}}:</h1>
   <h1>Favorite Players</h1>
@@ -20,7 +19,7 @@
   <ol>
   {% for team in teams %}
   <div>
-  <li><h4>{{team.city}} {{team.nickname}}</h4></li>
+  <li><a class="team_detail_list" href="http://www.mlb.com/{{ team.nickname }}"><h4>{{team.city}} {{team.nickname}}</h4></a></li>
   <div class="team_container">
   <a class="edit_team" href="{% url 'players_and_teams:edit_team' team_id=team.id %}"> Edit Team</a>
   <form name="delete_team" method="POST" action="{% url 'players_and_teams:delete_team' team_id=team.id %}">

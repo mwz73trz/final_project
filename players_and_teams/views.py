@@ -106,6 +106,7 @@ def news_creater(news):
     news_api = "72c55bbd64484a56a24f37a30f2ea656"
     return f"https://newsapi.org/v2/everything?q={modified_news}&from=2021-03-26&sortBy=popularity&language=en&apiKey={news_api}"
 
+@login_required
 def news_detail(request):
     if request.method == "GET":
         query = request.GET.get('q')
@@ -123,6 +124,7 @@ def news_detail(request):
             except Exception as e:
                 print(e)
                 return HttpResponse(f"No results were found for {query}")
+
 
 
 

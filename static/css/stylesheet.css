@@ -9,10 +9,6 @@ body {
   background-color: #333;
 }
 
-.go_back_base {
-  color: black;
-}
-
 .return_main_page_base {
   color: white;
 }
@@ -83,6 +79,10 @@ ol {
   text-align: left;
   color: black;
   font-size: large;
+}
+
+.team_detail_list {
+  color: black;
 }
 
 .player_detail {

@@ -20,13 +20,4 @@
     <input class="delete_player" type="submit" value="Delete Player" />
   </form>
 </div>
-<br>
-<div class="search_news">
-<h1>Search</h1>
-<p>Enter a Subject to Search for Articles</p>
-<form type="get" action="{% url 'players_and_teams:news_detail' %}" accept-charset="utf-8">
-    <input type="search" id="q" name="q" placeholder="Search..."/>
-    <button type="submit">Submit</button>
-</form>
-</div>
 {% endblock %}
