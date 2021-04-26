@@ -3,19 +3,21 @@
 
 {% block content %}
 <div class="player_team_list_container">
-<h1>Favorite Players and Teams for User {{user.username}}:</h1>
+<h1 class="display-4">Favorite Players and Teams for User {{user.username}}:</h1>
   <h1 style="color: red;">Favorite Players</h1>
   <div class="row justify-content-center">
     <div class="col-auto">
   <table class="table table-success table-striped" id="player_table">
     <thead>
       <tr>
+        <th> </th>
         <th scope="col">Player Name</th>
       </tr>
     </thead>
     {% for player in players %}
     <tbody>
       <tr>
+        <td style="color: blue;"><b>--></b></td>
         <td><a  class="player_detail" href="{% url 'players_and_teams:player_detail' player_id=player.id %}"><h4>{{player.first_name}} {{player.last_name}}</h4></a></td>
       </tr>
     </tbody>
@@ -24,29 +26,33 @@
     {% endfor %}
   </table>
   <br>
-  <a class="new_player" href="{% url 'players_and_teams:new_player' %}">Enter A New Player</a>
+  <a class="new_player" style="color: blue;" href="{% url 'players_and_teams:new_player' %}">Enter A New Player</a>
   <br>
   <h1 style="color:blue">Favorite Teams</h1>
   <table class="table table-success table-striped">
     <thead>
       <tr>
+        <th> </th>
         <th scope="col">Team Name</th>
+        <th> </th>
+        <th> </th>
       </tr>
     </thead>
     {% for team in teams %}
     <tbody>
       <tr>
+        <td style="color: blue;"><b>--></b></td>
         <td><a class="team_detail_list" href="http://www.mlb.com/{{ team.nickname }}"><h4>{{team.city}} {{team.nickname}}</h4></a></td>
-        <td><a class="edit_team" href="{% url 'players_and_teams:edit_team' team_id=team.id %}"> Edit Team</a></td>
+        <td><a class="edit_team" style="color: blue;" href="{% url 'players_and_teams:edit_team' team_id=team.id %}"> Edit Team</a></td>
         <td><form name="delete_team" method="POST" action="{% url 'players_and_teams:delete_team' team_id=team.id %}">
           {% csrf_token %}
-          <input type="submit" value="Delete Team" />
+          <input class="btn btn-primary" type="submit" value="Delete Team" />
         </form></td>
       </tr>
     </tbody>
     {% endfor %}
   </table>
   <br>
-    <a class="enter_team" href="{% url 'players_and_teams:new_team' %}">Enter A New Team</a>
+    <a class="enter_team" style="color: blue;" href="{% url 'players_and_teams:new_team' %}">Enter A New Team</a>
   </div>
 {% endblock %}

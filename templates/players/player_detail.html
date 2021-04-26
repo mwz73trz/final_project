@@ -3,21 +3,46 @@
 
 {% block content %}
 <div class="player_container">
-<h1>{{player.first_name}} {{player.last_name}}</h1>
-<p>Team: {{ team_full }}</p>
-<p>Postion: {{ position }}</p>
-<p>Bats: {{ bats }}</p>
-<p>Throws: {{ throws }}</p>
-<p>Birth Country: {{ birth_country }}</p>
-<p>Date of Birth: {{ birth_date }}</p>
-<p>Height: {{ height_feet }} feet {{ height_inches }} inches</p>
+<h1 style="color:blue">{{player.first_name}} {{player.last_name}}</h1>
+<table class="table table-success">
+  <tbody>
+    <tr>
+      <th scope="row">Team</th>
+      <td>{{ team_full }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Position</th>
+      <td>{{ position }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Bats</th>
+      <td colspan="2">{{ bats }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Throws</th>
+      <td colspan="2">{{ throws }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Birth Country</th>
+      <td colspan="2">{{ birth_country }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Date of Birth</th>
+      <td colspan="2">{{ birth_date }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Height</th>
+      <td colspan="2">{{ height_feet }} feet {{ height_inches }}  inches</td>
+    </tr>
+  </tbody>
+</table>
 <br>
-<a class="edit_player" href="{% url 'players_and_teams:edit_player' player_id=player.id %}"> Edit Player</a>
+<a class="edit_player"  style="color:blue" href="{% url 'players_and_teams:edit_player' player_id=player.id %}"> Edit Player</a>
 <br>
 <br>
 <form name="delete_player" method="POST" action="{% url 'players_and_teams:delete_player' player_id=player.id %}">
     {% csrf_token %}
-    <input class="delete_player" type="submit" value="Delete Player" />
+    <input class="delete_player btn-primary" type="submit" value="Delete Player" />
   </form>
 </div>
 {% endblock %}
