@@ -104,7 +104,7 @@ def generate_search_name(last_name):
 def news_creater(news):
     modified_news = news.replace(' ', '%20')
     news_api = "72c55bbd64484a56a24f37a30f2ea656"
-    return f"https://newsapi.org/v2/everything?q={modified_news}&from=2021-03-26&sortBy=popularity&language=en&apiKey={news_api}"
+    return f"https://newsapi.org/v2/everything?q={modified_news}&from=2021-04-15&sortBy=popularity&language=en&apiKey={news_api}"
 
 @login_required
 def news_detail(request):
